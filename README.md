@@ -16,3 +16,5 @@ Removing the Docker image:
 ### Travis CI:
 
 DOCKER_PASSWORD  was created by encrypting the password (https://docs.travis-ci.com/user/encryption-keys#usage).
+
+travis encrypt DOCKER_PASSWORD="<your_password>" --add
