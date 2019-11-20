@@ -1,4 +1,6 @@
-language: javascript
+language: node_js
+node_js:
+  - 12.13
 services: docker
 env:
   global:
