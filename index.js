@@ -19,6 +19,7 @@ server.get('/', (req, res, next) => {
 });
 
 require('./routes/infoRoutes')(server);
+require('./routes/healthRoutes')(server);
 
 server.listen(8080, () => {
     console.log(`${server.name} listening at ${server.url}`);

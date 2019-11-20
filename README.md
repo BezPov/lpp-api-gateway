@@ -1,3 +1,5 @@
+### Docker
+
 Building the Docker image: 
 
 `docker image build -t lpp-api-gateway:1.0.0 .`
@@ -9,3 +11,8 @@ Running the Docker image:
 Removing the Docker image:
 
 `docker container remove --force lpp-api-gateway`
+
+
+### Travis CI:
+
+DOCKER_PASSWORD  was created by encrypting the password (https://docs.travis-ci.com/user/encryption-keys#usage).
