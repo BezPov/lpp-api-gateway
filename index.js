@@ -12,11 +12,13 @@ server.get('/', (req, res, next) => {
     res.json({
         name: 'lpp-api-gateway',
         version: '1.0.0',
-        description: 'Finds the best route'
+        description: 'Api gateway'
     });
 
     return next();
 });
+
+require('./routes/infoRoutes')(server);
 
 server.listen(8080, () => {
     console.log(`${server.name} listening at ${server.url}`);
