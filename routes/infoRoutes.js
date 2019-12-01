@@ -1,9 +1,17 @@
 const initRoutes = function (server) {
     server.get('/info', function (req, res, next) {
         res.json({
-            "clani": ["np9417", ""],
+            "clani": ["np9417", "lb4263"],
             "opis_projekta": "Projekt je namenjen iskanju poti preko LPP-ja",
-            "mikrostoritve": [],
+            "mikrostoritve": [
+                "https://lpp-api-gateway.azurewebsites.net",
+                "https://lpp-logger.azurewebsites.net",
+                "https://lpp-route-finder.azurewebsites.net",
+                "https://lpp-payment.azurewebsites.net",
+                "https://lpp-parser.azurewebsites.net",
+                "https://lpp-account.azurewebsites.net",
+                "https://lpp-frontend.azurewebsites.net"
+            ],
             "github": [
                 "https://github.com/BezPov/lpp-api-gateway",
                 "https://github.com/BezPov/rso-lpp-logger",
