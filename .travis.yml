@@ -12,3 +12,12 @@ before_install:
 - docker image build -t $PROJECT_NAME:$PROJECT_VERSION .
 - docker image tag $PROJECT_NAME:$PROJECT_VERSION $DOCKER_USERNAME/$PROJECT_NAME:$PROJECT_VERSION
 - docker image push $DOCKER_USERNAME/$PROJECT_NAME
+  # Add gcloud to $PATH
+  - source /home/travis/google-cloud-sdk/path.bash.inc
+  - gcloud version
+  - gcloud auth activate-service-account --key-file ./kubernetes/service-account.json
+  - gcloud config set project massive-boulder-263710
+  - gcloud container clusters get-credentials lpp --zone us-central1-a --project massive-boulder-263710
+  - gcloud components install kubectl
+  - kubectl apply -f ./kubernetes/deployment.yaml
+  - kubectl apply -f ./kubernetes/ingress.yaml

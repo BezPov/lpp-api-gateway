@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lpp-api-gateway
+spec:
+  selector:
+    matchLabels:
+      app: lpp-api-gateway
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lpp-api-gateway
+    spec:
+      containers:
+        - image: bezpov/lpp-api-gateway:1.0.0
+          name: lpp-api-gateway-container
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 3
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lpp-api-gateway-service
+  namespace: default
+  labels:
+    app: lpp-api-gateway
+spec:
+  ports:
+    - protocol: TCP
+      port: 81
+      targetPort: 8080
+  selector:
+    app: lpp-api-gateway
+  type: NodePort
