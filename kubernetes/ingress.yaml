@@ -1,0 +1,18 @@
+---
+apiVersion: "extensions/v1beta1"
+kind: "Ingress"
+metadata:
+  name: "lpp-ingress"
+  namespace: "default"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: "/account"
+            backend:
+              serviceName: "lpp-account-service"
+              servicePort: 80
+          - path: "/"
+            backend:
+              serviceName: "lpp-gateway-service"
+              servicePort: 81
