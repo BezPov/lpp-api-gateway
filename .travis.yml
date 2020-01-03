@@ -11,6 +11,9 @@ env:
   - DOCKER_USERNAME=bezpov
   - secure: CBi+UWBxYoqT68fUjpCOgv6f23nzrfC1imVjs/FGCxn2ke5wcEyQVddzLgPnVXA5mNPJqg3pzA3UO7fRXUF3vWLONyf7rzJqa3BbQVqvBYWeHO9LCTehs3FU19e3m0OesCo91Hok41elCHM2V/l7X6NXnuR4lFsFhNZeRa1L6pDMv2PIGe8sWat18LQPDTxaaVCIMSUYur1gFainW3ScfJnOR0oebnbUM6iisOQyLh5wT/vlgULu9JUh+Na0X2tcFu9TrP6zF2MPB9PFBNE9opAjhh3ex7cGLAEXlLL7IaT088moHGurVUk8uISbwJ6LCl835Y3LjZ2AU2zy9lUr/xZp8K7abiSpaGIAkmovg0QZDnpM4WCkL4s0XLL7+Oc3wn85tV+KlTfGvYdgy2ytDlSj2VJ9JsSFE4hFR/O7+Pbcy4sKFGCHHdSRMLrNYNo9ijCiKvHX2XfsVevLFl9Mtj2SaoTT7jnjgrB+y60htZ0uQCSkBVWZCyJhoFPC+OGov6ScO9ZwEudUsCrAmviTrpSbhS4jJQGEtA6Q1DG3eotHSn2KRRPVbvi9rsgg1GnOzxBwQSuKRxA4sIqFDaEBzjvGizclS/lFeJ5NY24VcxhLQE3ncK+twKDR4/XYk1mGzZSBREuCRD5U1/bulqxuXR9dt/sseFvHNxJ3dT5CMQg=
 before_install:
+- openssl aes-256-cbc -K $encrypted_9713d8688cb6_key -iv $encrypted_9713d8688cb6_iv
+  -in google-travis-service-account.json.enc -out google-travis-service-account.json
+  -d
 - openssl aes-256-cbc -K $encrypted_e0b67d75bef0_key -iv $encrypted_e0b67d75bef0_iv
   -in google-travis-service-account.json.enc -out google-travis-service-account.json
   -d
