@@ -15,6 +15,11 @@ Removing the Docker image:
 
 ### Travis CI:
 
-DOCKER_PASSWORD  was created by encrypting the password (https://docs.travis-ci.com/user/encryption-keys#usage).
+Secrets  were created by encrypting using travis (https://docs.travis-ci.com/user/encryption-keys#usage).
+They must be created separately for each repository.
 
-travis encrypt DOCKER_PASSWORD="<your_password>" --add
+`travis encrypt DOCKER_PASSWORD="<your_password>" --add`
+
+`travis encrypt GOOGLE_INTEGRATION_PASSWORD="<your_password>" --add`
+
+`gpg -c ../google-travis-service-account.json` (encrypts the whole file with a passphrase)
