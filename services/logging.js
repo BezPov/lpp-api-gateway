@@ -3,7 +3,7 @@ const winston = require('winston');
 require('winston-logstash');
 
 try {
-    const logitData = require('../config/logit-io-config');
+    const logitData = require('../config/logit-io-config.json');
 
     winston.add(winston.transports.Logstash, logitData);
 } catch (ex) {

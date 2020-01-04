@@ -1,4 +1,8 @@
+const logger = require('./services/logging');
+
 const initRoutes = function (server) {
+    logger.info('Accessed info route');
+
     server.get('/info', function (req, res, next) {
         res.json({
             "clani": ["np9417", "lb4263"],
