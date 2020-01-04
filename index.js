@@ -4,10 +4,12 @@ const logger = require('./services/logging');
 
 const etcd = require('./services/etcd');
 
-const server = restify.createServer({
+const options = {
     name: 'lpp-api-gateway',
-    version: '1.0.0'
-});
+    version: process.env.npm_package_version
+};
+
+const server = restify.createServer(options);
 
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
@@ -15,7 +17,7 @@ server.use(restify.plugins.bodyParser());
 server.get('/', (req, res, next) => {
     res.json({
         name: 'lpp-api-gateway',
-        version: '1.0.0',
+        version: process.env.npm_package_version,
         description: 'Api gateway'
     });
 
@@ -28,7 +30,7 @@ require('./routes/metricsRoutes')(server);
 require('./routes/etcdRoutes')(server);
 
 server.listen(8080, () => {
-    console.log(`${server.name} listening at ${server.url}`);
+    console.log(`${options.name} ${options.version} listening at ${server.url}`);
     
-    logger.info(`${server.name} listening at ${server.url}`);
+    logger.info(`${options.name} ${options.version} listening at ${server.url}`);
 });

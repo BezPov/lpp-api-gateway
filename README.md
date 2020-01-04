@@ -22,6 +22,6 @@ They must be created separately for each repository.
 
 `travis encrypt GOOGLE_INTEGRATION_PASSWORD=<your_password> --add`
 
-`travis encrypt ETCD_SERVER=<your_server> --add`
-
 `gpg -c ../google-travis-service-account.json` (encrypts the whole file with a passphrase)
+`gpg -c ../logit-io-config.json` (encrypts the whole file with a passphrase)
+`gpg -c ../etcd.json` (encrypts the whole file with a passphrase)
