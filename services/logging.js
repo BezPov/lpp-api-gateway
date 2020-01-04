@@ -7,7 +7,7 @@ try {
 
     winston.add(winston.transports.Logstash, logitData);
 } catch (ex) {
-    console.log("[Winston] Not running in production");
+    console.log(ex);
 }
 
 module.exports = winston;

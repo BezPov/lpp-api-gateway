@@ -1,7 +1,14 @@
 const Etcd = require('node-etcd');
 
-const etcdData = require('../config/etcd.json');
+let etcdConfig;
 
-const etcd = new Etcd(process.env.ETCD_SERVER || etcdData.url);
+try {
+    etcdConfig = require('../config/etcd.json');
+} catch (ex) {
+    console.log(ex);
+}
+
+
+const etcd = new Etcd(etcdConfig ? etcdConfig.url : process.env.ETCD_SERVER);
 
 module.exports = etcd;
