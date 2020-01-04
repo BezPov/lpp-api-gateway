@@ -2,6 +2,8 @@ const restify = require('restify');
 
 const logger = require('./services/logging');
 
+const etcd = require('./services/etcd');
+
 const server = restify.createServer({
     name: 'lpp-api-gateway',
     version: '1.0.0'

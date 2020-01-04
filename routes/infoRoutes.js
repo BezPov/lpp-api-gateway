@@ -1,4 +1,4 @@
-const logger = require('./services/logging');
+const logger = require('../services/logging');
 
 const initRoutes = function (server) {
     logger.info('Accessed info route');
