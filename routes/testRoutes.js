@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const initRoutes = function (server) {
     server.get('/test', function (req, res, next) {
-        axios.get('lpp-account-service.default.svc.cluster.local/metrics')
+        axios.get('http://lpp-account-service')
             .then(response => {
                 res.json(response);
 
