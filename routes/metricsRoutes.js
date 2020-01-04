@@ -1,7 +1,7 @@
 const initRoutes = function (server) {
-    server.get('/test', function (req, res, next) {
+    server.get('/metrics', function (req, res, next) {
         res.json({
-            "status": "Update successful"
+            status: 'OK'
         });
 
         return next();

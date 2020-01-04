@@ -1,16 +1,6 @@
 const restify = require('restify');
 
-const winston = require('winston');
-require('winston-logstash');
-
-winston.add(winston.transports.Logstash,
-    {
-        port: 16678,
-        host: 'bc4b617c-fe4d-4d3a-994e-08e84919e17d-ls.logit.io',
-        ssl_enable: true,
-        max_connect_retries: -1
-    }
-);
+const logger = require('./services/logging');
 
 const server = restify.createServer({
     name: 'lpp-api-gateway',
@@ -31,11 +21,13 @@ server.get('/', (req, res, next) => {
 });
 
 require('./routes/infoRoutes')(server);
-require('./routes/testRoutes')(server);
 require('./routes/healthRoutes')(server);
+require('./routes/metricsRoutes')(server);
 
 server.listen(8080, () => {
     console.log(`${server.name} listening at ${server.url}`);
 
-    winston.log(`${server.name} listening at ${server.url}`);
+    require('./services/etcd').get("firstValue", console.log);
+
+    logger.info(`${server.name} listening at ${server.url}`);
 });
