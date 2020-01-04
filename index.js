@@ -28,6 +28,7 @@ require('./routes/infoRoutes')(server);
 require('./routes/healthRoutes')(server);
 require('./routes/metricsRoutes')(server);
 require('./routes/etcdRoutes')(server);
+require('./routes/testRoutes')(server);
 
 server.listen(8080, () => {
     console.log(`${options.name} ${options.version} listening at ${server.url}`);
