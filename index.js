@@ -23,11 +23,10 @@ server.get('/', (req, res, next) => {
 require('./routes/infoRoutes')(server);
 require('./routes/healthRoutes')(server);
 require('./routes/metricsRoutes')(server);
+require('./routes/etcdRoutes')(server);
 
 server.listen(8080, () => {
     console.log(`${server.name} listening at ${server.url}`);
-
-    require('./services/etcd').get("firstValue", console.log);
-
+    
     logger.info(`${server.name} listening at ${server.url}`);
 });
