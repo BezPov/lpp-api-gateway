@@ -37,6 +37,6 @@ spec:
               serviceName: "lpp-api-gateway-service"
               servicePort: 81
           - path: /app(/|$)(.*)
-          backend:
-            serviceName: "lpp-frontend-service"
-            servicePort: 82
+            backend:
+              serviceName: "lpp-frontend-service"
+              servicePort: 82
