@@ -12,15 +12,31 @@ spec:
   rules:
     - http:
         paths:
-          - path: /api/account(/|$)(.*)
-            backend:
-              serviceName: "lpp-account-service"
-              servicePort: 80
-          - path: /api(/|$)(.*)
-            backend:
-              serviceName: "lpp-api-gateway-service"
-              servicePort: 81
           - path: /app(/|$)(.*)
             backend:
               serviceName: "lpp-frontend-service"
               servicePort: 82
+          - path: /api(/|$)(.*)
+            backend:
+              serviceName: "lpp-api-gateway-service"
+              servicePort: 81
+          - path: /api/account(/|$)(.*)
+            backend:
+              serviceName: "lpp-account-service"
+              servicePort: 80
+          - path: /api/feedback(/|$)(.*)
+            backend:
+              serviceName: "lpp-feedback-service"
+              servicePort: 83
+          - path: /api/parser(/|$)(.*)
+            backend:
+              serviceName: "lpp-parser-service"
+              servicePort: 84
+          - path: /api/payment(/|$)(.*)
+            backend:
+              serviceName: "lpp-payment-service"
+              servicePort: 85
+          - path: /api/route-finder(/|$)(.*)
+            backend:
+              serviceName: "lpp-route-finder-service"
+              servicePort: 86
