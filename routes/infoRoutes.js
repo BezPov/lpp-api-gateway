@@ -1,9 +1,9 @@
 const logger = require('../services/logging');
 
 const initRoutes = function (server) {
-    logger.info('Accessed info route');
-
     server.get('/info', function (req, res, next) {
+        logger.info('Accessed info route');
+
         res.json({
             "clani": ["np9417", "lb4263"],
             "opis_projekta": "Projekt je namenjen iskanju poti preko LPP-ja",
