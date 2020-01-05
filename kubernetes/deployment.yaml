@@ -13,8 +13,11 @@ spec:
         app: lpp-api-gateway
     spec:
       containers:
-        - image: bezpov/lpp-api-gateway:1.0.9
+        - image: bezpov/lpp-api-gateway:1.0.10
           name: lpp-api-gateway-container
+          env:
+            name: ETCD_SERVER
+            value: "http://etcd-client:2379"
           ports:
             - containerPort: 8080
           livenessProbe:

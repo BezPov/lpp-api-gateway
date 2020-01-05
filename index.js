@@ -1,8 +1,8 @@
 const restify = require('restify');
 
-const logger = require('./services/logging');
-
 const etcd = require('./services/etcd');
+
+const logger = require('./services/logging');
 
 const options = {
     name: 'lpp-api-gateway',
