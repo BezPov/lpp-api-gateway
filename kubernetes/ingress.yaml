@@ -20,10 +20,6 @@ spec:
             backend:
               serviceName: "lpp-feedback-service"
               servicePort: 83
-          - path: /api/parser(/|$)(.*)
-            backend:
-              serviceName: "lpp-parser-service"
-              servicePort: 84
           - path: /api/payment(/|$)(.*)
             backend:
               serviceName: "lpp-payment-service"
@@ -32,6 +28,22 @@ spec:
             backend:
               serviceName: "lpp-route-finder-service"
               servicePort: 86
+          - path: /api/parser(/|$)(.*)
+          backend:
+           serviceName: "lpp-parser-service"
+           servicePort: 90
+          - path: /api/buses(/|$)(.*)
+            backend:
+              serviceName: "lpp-buses-service"
+              servicePort: 92
+          - path: /api/stations(/|$)(.*)
+            backend:
+              serviceName: "lpp-stations-service"
+              servicePort: 93
+          - path: /api/arrivals(/|$)(.*)
+            backend:
+              serviceName: "lpp-arrivals-service"
+              servicePort: 91
           - path: /api(/|$)(.*)
             backend:
               serviceName: "lpp-api-gateway-service"

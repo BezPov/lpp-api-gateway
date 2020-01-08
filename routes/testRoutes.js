@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const initRoutes = function (server) {
     server.get('/test', function (req, res, next) {
-        axios.get('http://lpp-account-service')
+        axios.get('lpp-account-service')
             .then(response => {
                 console.log(response);
                 
