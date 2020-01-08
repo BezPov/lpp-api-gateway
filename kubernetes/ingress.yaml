@@ -29,9 +29,9 @@ spec:
               serviceName: "lpp-route-finder-service"
               servicePort: 86
           - path: /api/parser(/|$)(.*)
-          backend:
-           serviceName: "lpp-parser-service"
-           servicePort: 90
+            backend:
+             serviceName: "lpp-parser-service"
+             servicePort: 90
           - path: /api/buses(/|$)(.*)
             backend:
               serviceName: "lpp-buses-service"
