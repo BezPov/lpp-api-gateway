@@ -48,6 +48,10 @@ spec:
             backend:
               serviceName: "lpp-api-gateway-service"
               servicePort: 81
+          - path: /metrics(/|$)(.*)
+            backend:
+              serviceName: "lpp-metrics-service"
+              servicePort: 50
           - path: /app(/|$)(.*)
             backend:
               serviceName: "lpp-frontend-service"
